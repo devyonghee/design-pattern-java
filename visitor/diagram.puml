@@ -1,0 +1,44 @@
+@startuml
+
+package Element <<Rectangle>> {
+interface Element {
+  accept(Visitor visitor)
+}
+
+class ElementA implements Element {
+  accept(Visitor visitor)
+}
+
+class ElementB implements Element {
+  accept(Visitor visitor)
+}
+circle ObjectStructure
+
+}
+
+
+package Visitor <<Rectangle>>{
+interface Visitor {
+  visit(ElementA element);
+  visit(ElementB element);
+}
+
+class VisitorOne implements Visitor {
+  visit(ElementA element);
+  visit(ElementB element);
+}
+
+class VisitorTwo implements Visitor {
+  visit(ElementA element);
+  visit(ElementB element);
+}
+}
+
+
+circle client
+
+client -right-> Visitor
+client --> ObjectStructure
+ObjectStructure -right-> Element
+
+@enduml
