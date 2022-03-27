@@ -1,0 +1,57 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Specification {
+  Specification and(Specification other);
+  Specification andNot(Specification other);
+  Specification or(Specification other);
+  Specification orNot(Specification other);
+  Specification not();
+  boolean isSatisfiedBy(Object candidate);
+}
+
+abstract class AbstractSpecification implements Specification {
+  Specification and(Specification other);
+  Specification andNot(Specification other);
+  Specification or(Specification other);
+  Specification orNot(Specification other);
+  Specification not();
+  abstract boolean isSatisfiedBy(Object candidate);
+}
+
+class AndSpecification extends AbstractSpecification {
+  private Specification leftCondition;
+  private Specification rightCondition;
+
+  public IsSatisfiedBy(object candidate);
+}
+
+class AndNotSpecification extends AbstractSpecification {
+  private Specification leftCondition;
+  private Specification rightCondition;
+
+  public IsSatisfiedBy(object candidate);
+}
+
+class OrSpecification extends AbstractSpecification {
+  private Specification leftCondition;
+  private Specification rightCondition;
+
+  public IsSatisfiedBy(object candidate);
+}
+
+class OrNotSpecification extends AbstractSpecification {
+  private Specification leftCondition;
+  private Specification rightCondition;
+
+  public IsSatisfiedBy(object candidate);
+}
+
+class NotSpecification extends AbstractSpecification {
+  private Specification wrappedCondition;
+
+  public IsSatisfiedBy(object candidate);
+}
+
+
+@enduml
