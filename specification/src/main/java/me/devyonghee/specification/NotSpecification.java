@@ -1,15 +1,15 @@
 package me.devyonghee.specification;
 
-public class NotSpecification extends AbstractSpecification {
+public class NotSpecification<T> extends CompositeSpecification<T> {
 
-    private final Specification condition;
+    private final Specification<? super T> condition;
 
-    public NotSpecification(Specification condition) {
+    public NotSpecification(Specification<? super T> condition) {
         this.condition = condition;
     }
 
     @Override
-    public boolean isSatisfiedBy(Object candidate) {
+    public boolean isSatisfiedBy(T candidate) {
         return !condition.isSatisfiedBy(candidate);
     }
 

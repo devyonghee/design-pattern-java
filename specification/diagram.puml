@@ -10,7 +10,7 @@ interface Specification {
   boolean isSatisfiedBy(Object candidate);
 }
 
-abstract class AbstractSpecification implements Specification {
+abstract class CompositeSpecification implements Specification {
   Specification and(Specification other);
   Specification andNot(Specification other);
   Specification or(Specification other);
@@ -19,35 +19,35 @@ abstract class AbstractSpecification implements Specification {
   abstract boolean isSatisfiedBy(Object candidate);
 }
 
-class AndSpecification extends AbstractSpecification {
+class AndSpecification extends CompositeSpecification {
   private Specification leftCondition;
   private Specification rightCondition;
 
   public IsSatisfiedBy(object candidate);
 }
 
-class AndNotSpecification extends AbstractSpecification {
+class AndNotSpecification extends CompositeSpecification {
   private Specification leftCondition;
   private Specification rightCondition;
 
   public IsSatisfiedBy(object candidate);
 }
 
-class OrSpecification extends AbstractSpecification {
+class OrSpecification extends CompositeSpecification {
   private Specification leftCondition;
   private Specification rightCondition;
 
   public IsSatisfiedBy(object candidate);
 }
 
-class OrNotSpecification extends AbstractSpecification {
+class OrNotSpecification extends CompositeSpecification {
   private Specification leftCondition;
   private Specification rightCondition;
 
   public IsSatisfiedBy(object candidate);
 }
 
-class NotSpecification extends AbstractSpecification {
+class NotSpecification extends CompositeSpecification {
   private Specification condition;
 
   public IsSatisfiedBy(object candidate);

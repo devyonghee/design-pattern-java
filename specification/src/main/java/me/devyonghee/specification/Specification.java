@@ -1,16 +1,16 @@
 package me.devyonghee.specification;
 
-interface Specification {
+interface Specification<T> {
 
-    Specification and(Specification other);
+    Specification<T> and(Specification<? super T> other);
 
-    Specification andNot(Specification other);
+    Specification<T> andNot(Specification<? super T> other);
 
-    Specification or(Specification other);
+    Specification<T> or(Specification<? super T> other);
 
-    Specification orNot(Specification other);
+    Specification<T> orNot(Specification<? super T> other);
 
-    Specification not();
+    Specification<T> not();
 
-    boolean isSatisfiedBy(Object candidate);
+    boolean isSatisfiedBy(T candidate);
 }

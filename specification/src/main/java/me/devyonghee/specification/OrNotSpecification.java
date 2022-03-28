@@ -1,18 +1,18 @@
 package me.devyonghee.specification;
 
-public class OrNotSpecification extends AbstractSpecification {
+public class OrNotSpecification<T> extends CompositeSpecification<T> {
 
-    private final Specification leftCondition;
-    private final Specification rightCondition;
+    private final Specification<? super T> leftCondition;
+    private final Specification<? super T> rightCondition;
 
-    public OrNotSpecification(Specification leftCondition, Specification rightCondition) {
+    public OrNotSpecification(Specification<? super T> leftCondition, Specification<? super T> rightCondition) {
         this.leftCondition = leftCondition;
         this.rightCondition = rightCondition;
     }
 
     @Override
-    public boolean isSatisfiedBy(Object candidate) {
-        return !leftCondition.isSatisfiedBy(candidate) || !rightCondition.isSatisfiedBy(candidate);
+    public boolean isSatisfiedBy(T candidate) {
+        return leftCondition.isSatisfiedBy(candidate) || !rightCondition.isSatisfiedBy(candidate);
     }
 
 }
