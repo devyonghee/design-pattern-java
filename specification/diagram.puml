@@ -48,7 +48,7 @@ class OrNotSpecification extends AbstractSpecification {
 }
 
 class NotSpecification extends AbstractSpecification {
-  private Specification wrappedCondition;
+  private Specification condition;
 
   public IsSatisfiedBy(object candidate);
 }
