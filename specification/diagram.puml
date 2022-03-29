@@ -23,34 +23,34 @@ class AndSpecification extends CompositeSpecification {
   private Specification leftCondition;
   private Specification rightCondition;
 
-  public IsSatisfiedBy(object candidate);
+  public isSatisfiedBy(object candidate);
 }
 
 class AndNotSpecification extends CompositeSpecification {
   private Specification leftCondition;
   private Specification rightCondition;
 
-  public IsSatisfiedBy(object candidate);
+  public isSatisfiedBy(object candidate);
 }
 
 class OrSpecification extends CompositeSpecification {
   private Specification leftCondition;
   private Specification rightCondition;
 
-  public IsSatisfiedBy(object candidate);
+  public isSatisfiedBy(object candidate);
 }
 
 class OrNotSpecification extends CompositeSpecification {
   private Specification leftCondition;
   private Specification rightCondition;
 
-  public IsSatisfiedBy(object candidate);
+  public isSatisfiedBy(object candidate);
 }
 
 class NotSpecification extends CompositeSpecification {
   private Specification condition;
 
-  public IsSatisfiedBy(object candidate);
+  public isSatisfiedBy(object candidate);
 }
 
 
