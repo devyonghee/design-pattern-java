@@ -26,6 +26,4 @@ public abstract class CompositeSpecification<T> implements Specification<T> {
     public Specification<T> not() {
         return new NotSpecification<>(this);
     }
-
-    public abstract boolean isSatisfiedBy(T candidate);
 }
