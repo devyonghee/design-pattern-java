@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Component {
+  void operation();
+}
+
+class Composite implements Component {
+  void operation();
+  void add(Component component);
+  void remove(Component component);
+}
+
+
+class Leaf implements Component {
+  void operation();
+}
+
+@enduml
