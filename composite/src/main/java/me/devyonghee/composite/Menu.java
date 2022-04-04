@@ -7,7 +7,15 @@ import java.util.stream.Collectors;
 
 public class Menu implements MenuComponent {
 
+    private static final String NAME_DELIMITER = " : ";
+
+    private final String name;
+
     private final List<MenuComponent> components = new ArrayList<>();
+
+    public Menu(String name) {
+        this.name = name;
+    }
 
     public void add(MenuComponent component) {
         if (component == null) {
@@ -25,15 +33,19 @@ public class Menu implements MenuComponent {
 
     @Override
     public String name() {
-        return components.stream()
-                .map(MenuComponent::name)
-                .collect(Collectors.joining("+"));
+        return String.join(NAME_DELIMITER, this.name, componentsName());
     }
 
     @Override
     public BigDecimal price() {
         return components.stream()
                 .map(MenuComponent::price)
-                .reduce(BigDecimal.ZERO, BigDecimal::max);
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
+    private String componentsName() {
+        return components.stream()
+                .map(MenuComponent::name)
+                .collect(Collectors.joining("+"));
     }
 }
