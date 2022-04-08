@@ -3,18 +3,14 @@ package me.devyonghee.composite;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Menu implements MenuComponent {
 
-    private static final String NAME_DELIMITER = " : ";
-
-    private final String name;
-
+    private final BigDecimal defaultPrice;
     private final List<MenuComponent> components = new ArrayList<>();
 
-    public Menu(String name) {
-        this.name = name;
+    public Menu(BigDecimal defaultPrice) {
+        this.defaultPrice = defaultPrice;
     }
 
     public void add(MenuComponent component) {
@@ -32,20 +28,13 @@ public class Menu implements MenuComponent {
     }
 
     @Override
-    public String name() {
-        return String.join(NAME_DELIMITER, this.name, componentsName());
+    public BigDecimal price() {
+        return defaultPrice.add(componentsPrice());
     }
 
-    @Override
-    public BigDecimal price() {
+    private BigDecimal componentsPrice() {
         return components.stream()
                 .map(MenuComponent::price)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
-    }
-
-    private String componentsName() {
-        return components.stream()
-                .map(MenuComponent::name)
-                .collect(Collectors.joining("+"));
     }
 }
