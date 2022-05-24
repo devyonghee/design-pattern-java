@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+
+() client
+
+interface Flyweight {
+  operation()
+}
+
+
+class ConcreteFlyweight implements Flyweight {
+  operation()
+}
+
+class UnsharedConcreteFlyweight implements Flyweight {
+  operation()
+}
+
+class FlyweightFactory {
+  getFlyweight(key);
+}
+
+FlyweightFactory o--"*" Flyweight
+client -right-> Flyweight
+client -down-> FlyweightFactory : getFlyweight
+FlyweightFactory .right.> ConcreteFlyweight : <<create & share>>
+
+@enduml

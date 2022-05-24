@@ -1,0 +1,37 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+control client
+participant flyweightFactory
+participant concreteFlyweight
+
+== first ==
+
+client -> flyweightFactory : getFlyweight(key)
+activate client
+activate flyweightFactory
+flyweightFactory --> concreteFlyweight **  : <<create>>
+flyweightFactory -->  client : concreteFlyweight
+deactivate flyweightFactory
+
+client -> concreteFlyweight : operation
+activate concreteFlyweight
+deactivate concreteFlyweight
+deactivate client
+
+== second ==
+
+client -> flyweightFactory : getFlyweight(key)
+activate client
+activate flyweightFactory
+flyweightFactory --> concreteFlyweight  : <<share>>
+flyweightFactory -->  client : concreteFlyweight
+deactivate flyweightFactory
+
+client -> concreteFlyweight : operation
+activate concreteFlyweight
+deactivate concreteFlyweight
+deactivate client
+
+
+@enduml
