@@ -2,4 +2,5 @@ rootProject.name = 'design-pattern-java'
 include 'visitor'
 include 'specification'
 include 'composite'
+include 'flyweight'
 
