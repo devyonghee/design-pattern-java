@@ -1,6 +1,6 @@
 package me.devyonghee.flywight.factory;
 
-public class Car implements Vehicle {
+public final class Car implements Vehicle {
 
     private static final String NAME_SUFFIX = " 자동차";
     private final String name;

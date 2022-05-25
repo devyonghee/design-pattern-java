@@ -8,6 +8,7 @@ public final class CarFactory {
     private static final Map<String, Car> FLYWEIGHT = new HashMap<>();
 
     private CarFactory() {
+        throw new AssertionError();
     }
 
     public static Vehicle getCar(String name) {
