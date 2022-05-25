@@ -1,8 +1,6 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-
-
 () client
 
 interface Flyweight {
