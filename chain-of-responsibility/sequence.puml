@@ -1,0 +1,18 @@
+@startuml
+
+control client
+participant ConcreteHandler1
+participant ConcreteHandler2
+participant ConcreteHandler3
+
+activate client
+client -> ConcreteHandler1 : handle()
+activate ConcreteHandler1
+ConcreteHandler1 -> ConcreteHandler2 : handle()
+activate ConcreteHandler2
+ConcreteHandler2 -> ConcreteHandler3 : handle()
+
+
+
+
+@enduml
