@@ -5,4 +5,5 @@ include 'composite'
 include 'flyweight'
 include 'singleton'
 include 'chain-of-responsibility'
+include 'state'
 

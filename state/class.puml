@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+() client
+
+class Context {
+  - State state
+  ---
+  + request()
+}
+
+interface State {
+  handle()
+}
+
+class ConcreteState1 implements State {
+  handle()
+}
+
+class ConcreteState2 implements State {
+  handle()
+}
+
+
+client -right-> Context::request
+Context -right-> State
+
+@enduml
