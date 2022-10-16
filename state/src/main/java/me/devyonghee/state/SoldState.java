@@ -26,11 +26,20 @@ class SoldState implements State {
     @Override
     public void dispense() {
         gumBallMachine.releaseBall();
-        if (gumBallMachine.count() > 0) {
-            gumBallMachine.changeNoCoin();
+        if (gumBallMachine.isNotEmpty()) {
+            gumBallMachine.changeNoCoinState();
             return;
         }
         System.out.println("Oops, out of gumballs");
-        gumBallMachine.changeSoldOut();
+        gumBallMachine.changeSoldOutState();
+    }
+
+    @Override
+    public void refill() {
+    }
+
+    @Override
+    public String toString() {
+        return "SoldState";
     }
 }
