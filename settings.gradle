@@ -6,4 +6,5 @@ include 'flyweight'
 include 'singleton'
 include 'chain-of-responsibility'
 include 'state'
+include 'template-method'
 
